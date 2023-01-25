@@ -4,3 +4,4 @@ a simple react-native application using redux that contains the following:   
 
 ![Simulator Screen Shot - iPhone 14 - 2023-01-25 at 05 24 40](https://user-images.githubusercontent.com/59513275/214474144-89ca2612-69f9-4ef7-a22b-e407724e5df3.png)
 ![Simulator Screen Shot - iPhone 14 - 2023-01-25 at 05 24 51](https://user-images.githubusercontent.com/59513275/214474327-33c060a5-e246-4f36-9a4e-63a36c28dcf8.png)
+![Simulator Screen Shot - iPhone 14 - 2023-01-25 at 05 25 19](https://user-images.githubusercontent.com/59513275/214474438-53aa3e41-7e24-48ea-b510-64dbf219b6dd.png)

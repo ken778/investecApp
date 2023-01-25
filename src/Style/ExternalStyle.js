@@ -6,6 +6,15 @@ const height = Dimensions.get('screen').height;
 const width = Dimensions.get('screen').width;
 
 const ExternalStyle = StyleSheet.create({
+    nameText:{
+        textAlign:'right',
+        fontWeight:"600",
+        fontSize:20,
+        color:'white'
+      },
+      nameView:{
+        padding:15
+      },
  safeView:{
     backgroundColor:'#1a1924',
  
@@ -67,6 +76,7 @@ const ExternalStyle = StyleSheet.create({
         color:'white',
         fontWeight:'500'
     }
+
 
 
 })

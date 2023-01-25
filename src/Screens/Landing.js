@@ -41,6 +41,7 @@ const Landing = ({navigation})=>{
                  <Button title='Press me' onPress={goToHomeScreen}  ButtonStyle={ExternalStyle.defaultButton} textStyle={ExternalStyle.defaultButtoText}/>
                   <Button title='Press me'  onPress={showAlert} ButtonStyle={ExternalStyle.greyButton} textStyle={ExternalStyle.defaultButtoText}/>
                   <Button title='Press me' ButtonStyle={ExternalStyle.skyBlueBotton} textStyle={ExternalStyle.skyBlueBottonText}/>
+                  <SlideButton navigation={navigation}/>
                   
              </View>
          </View>

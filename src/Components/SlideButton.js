@@ -1,97 +1,72 @@
 import { useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, PanResponder, Animated ,Image} from 'react-native';
+import { View, Text, StyleSheet, PanResponder, Animated ,Image, Alert} from 'react-native';
+import SwipeButton from 'rn-swipe-button'
 
-const SlideButton = () => {
-    const slideRef = useRef(null);
-    const [slideWidth, setSlideWidth] = useState(0);
-    const [slidePosition, setSlidePosition] = useState(new Animated.Value(0));
-    const [panResponder, setPanResponder] = useState(PanResponder.create({}));
-  
-    useEffect(() => {
-      setPanResponder(
-        PanResponder.create({
-          onMoveShouldSetPanResponder: (evt, gestureState) => {
-            return Math.abs(gestureState.dx) > 5;
-          },
-          onPanResponderMove: (evt, gestureState) => {
-            let newPosition = gestureState.dx;
-            if (newPosition < 0) {
-              newPosition = 0;
-            } else if (newPosition > slideWidth) {
-              newPosition = slideWidth;
-            }
-            setSlidePosition(new Animated.Value(newPosition));
-          },
-          onPanResponderRelease: (evt, gestureState) => {
-            if (gestureState.dx >= slideWidth / 4) {
-              // Perform the desired action
-            }
-            setSlidePosition(new Animated.Value(0));
-          },
-        })
-      );
-    }, [slideWidth]);
-  
-    const handleSlideMeasure = (event) => {
-      setSlideWidth(event.nativeEvent.layout.width);
-    };
-  
-    const slideStyles = {
-      transform: [{ translateX: slidePosition }],
-    };
-  
-    const iconStyles = {
-      transform: [{ translateX: slidePosition }],
-    };
-  
-    return (
-      <View style={styles.container}>
-        <Text>
-            sfskjfsk
-        </Text>
-        <Animated.View
-          style={[styles.slideButton, slideStyles]}
-          {...panResponder.panHandlers}
-          onLayout={handleSlideMeasure}
-          ref={slideRef}
-        >
-          
-          <Animated.Image
-            source={{
-                uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-              }}
-            style={[styles.slideIcon, iconStyles]}
-          />
-          <Text style={styles.slideText}>Slide to Continue</Text>
-        </Animated.View>
-      </View>
-    );
-  };
+
+import { Dimensions } from "react-native";
+
+const height = Dimensions.get('screen').height;
+const width = Dimensions.get('screen').width;
+
+
+const SlideButton = ({navigation}) => {
+
+
+       return(
+        <>
+           <View style={styles.buttonView}>
+              <Text style={styles.buttonText}></Text>
+           
+            <SwipeButton
+             
+             disabled= {false}
+             swipeSuccessThreshold = {70}
+             height = {50}
+             width = {width * 0.9}
+             title = 'Slide me to continue'
+             titleColor='#6eb1f7'
+             onSwipeSuccess={()=>{navigation.navigate('Home');Alert.alert('Welcome to investec')}}
+             thumbIconStyles={{
+                 borderRadius: 15,
+
+             }}
+             thu
+             railBackgroundColor="#1a1924"
+             railFillBorderColor='#6eb1f7'
+             thumbIconBackgroundColor='#6eb1f7'
+             thumbIconBorderColor='white'
+             railFillBackgroundColor='#6eb1f7'
+             railBorderColor='#bbeaff'
+             railStyles={{
+                    
+                    
+             } 
+             }
+             
+
+            >
+            
+
+            </SwipeButton>
+           
+           </View>
+        </>
+       )
+     };
 
   export default SlideButton;
   
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+
+    buttonView:{
+    
+
     },
-    slideButton: {
-      width: 200,
-      height: 50,
-      backgroundColor: 'green',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-    },
-    slideText: {
-      color: 'white',
-      fontWeight: 'bold',
-      marginRight: 10,
-    },
-    slideIcon: {
-      width: 30,
-      height: 30,
-      zIndex:1
-    },
+    buttonText:{
+      fontSize:10,
+      marginVertical:7,
+      textAlign:'center'
+    }
+
+    
   });
